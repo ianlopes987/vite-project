@@ -6,6 +6,7 @@ export default createGlobalStyle`
         margin: 0;;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Poppins';
     }
 
     body{
@@ -13,7 +14,20 @@ export default createGlobalStyle`
         color: ${({theme}) => theme.COLORS.WHITE};
 
         -webkit-font-smothing: antialiased;
+        font-family: 'Poppins';
     }
+
+    div::before{
+
+        content: '';
+        width: 100%;
+        height: 368px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background: #121214;
+        }
 
     a{
         text-decoration: none;

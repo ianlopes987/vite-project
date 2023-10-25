@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-    width: 100%;
-    background-color: ${({theme}) => theme.COLORS.ORANGE};
-    color: ${({theme}) => theme.COLORS.BACKGROUND_800};
-    height: 56px;
+    height: 24px;
+    background: #969393;
+    border-radius: 8px;
+    font-family: 'Poppins';
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 26px;
+    color: #ffff;
     border: 0;
-    padding: 0 16px;
-    margin-top: 16px;
-    border-radius: 10px;
-    font-weight: 500;
-    &:disabled{
-        opacity:0.5;
-    }
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 `;

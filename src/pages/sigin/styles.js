@@ -1,48 +1,42 @@
 import styled from "styled-components";
-import backgroundImg from "../../assets/background.png"
 
 export const Container = styled.div`
 
-    height: 100vh;
     display: flex;
-    align-items: stretch;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: auto;
 
 `;
 
 export const Form = styled.form`
 
-    padding: 0 136px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    gap: 20px;
+    background: #fafafc;
+    margin-top: 20px;
+    border-radius: 8px;
+    min-height: 300px;
+    padding: 50px;
+    margin: 0px 16px;
 
-    > h1{
-        font-size: 48px;
-        color: ${({theme}) => theme.COLORS.ORANGE};
+    > fieldset{
+        border: none;
     }
 
-    > h2{
-        font-size: 24px;
-        margin-top: 48px;
+    > legend {
+        font-family: 'Roboto';
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 20px;
+        width: 100%;
+        border-bottom: 1px solid #e6e6f0;
+        padding-bottom: 10px;
         margin-bottom: 24px;
+        color: black;
     }
 
-    > p{
-        font-size: 14px;
-        color: ${({theme}) => theme.COLORS.GRAY_100};
-    }
 
-    > a{
-        margin-top: 24px;
-        color: ${({theme}) => theme.COLORS.ORANGE};
-    }
 
-`;
-
-export const Background = styled.div`
-    flex: 1;
-    background: url(${backgroundImg}) no-repeat center center;
-    background-size: cover;
 `;

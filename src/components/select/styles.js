@@ -11,13 +11,16 @@ export const Container = styled.div`
         font-size: 10px;
         padding: 0 14px;
         border: 1px solid #E6E6F0;
+        /*width: 120px;*/
+
         border-radius: 8px;
         background: #FAFAFC;
         height: 24px;
         line-height: 26px;
-        color: black;
+        color: #827f88;
         margin-bottom: 10px;
-        font-family: 'Poppins';
     }
 
 `;
+
+//#827f88

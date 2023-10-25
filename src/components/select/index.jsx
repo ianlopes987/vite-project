@@ -1,6 +1,6 @@
 import {Container} from "./styles";
 
-export function Section({children}){
+export function Select(children){
 
     return(
 

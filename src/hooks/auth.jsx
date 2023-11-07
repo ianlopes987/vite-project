@@ -18,7 +18,8 @@ function AuthProvider({children}){
                 "use_city_state_vehicle": true, 
                 "use_svt": false, 
                 "use_cod_fipe": true, 
-                "require_solicitation": false
+                "require_solicitation": false,
+                "get_reference_value": true,
             };
   
             const response = await Api.post("/usbi/syncService/getValuation",postData);

@@ -25,7 +25,7 @@ export function SignIn(){
     const percentFipe = `${((custo / avaliacao?.fipe_value) * 100)?.toFixed(0)}%`
     const percentFipeExpCli = `${((avaliacao?.expected_value / avaliacao?.fipe_value) * 100)?.toFixed(0)}%` 
     //avaliacao?.items?.findIndex(i => i?.id === 1)
-    const pneus = avaliacao?.items?.[avaliacao?.items?.findIndex(i => i?.id === 1)]?.expenses_value
+    const pneus = avaliacao?.items?.[avaliacao?.items?.findIndex(i => i?.id === 1)]?.expenses_value;
     const lataria = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 2)]?.expenses_value;
     const motor = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 3)]?.expenses_value;
     const pintura = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 4)]?.expenses_value;
@@ -47,6 +47,15 @@ export function SignIn(){
     const abs = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 16)]?.expenses_value;
     const luzInjecao = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 14)]?.expenses_value;
     const airBag = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 15)]?.expenses_value;
+    const b2b = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 8)]?.avg_value;
+    const percentB2B = `${((custo / b2b) * 100)?.toFixed(0)}%`;
+    const margemB2b = b2b - custo;
+    const percentMargemB2B = `${((margemB2b / custo) * 100)?.toFixed(0)}%`;
+    const b2c = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 7)]?.avg_value;
+    const percentB2C = `${((custo / b2c) * 100)?.toFixed(0)}%`;
+    const margemB2c = b2c - custo;
+    const percentMargemB2C = `${((margemB2c/ custo) * 100)?.toFixed(0)}%`;
+    const percentFipeSugestao = `${((avaliacao?.proposed_value/avaliacao?.fipe_value) * 100)?.toFixed(0)}%`
     
 
     switch(avaliacao?.rating) {
@@ -69,11 +78,6 @@ export function SignIn(){
           ""
       }
 
-      function numberToReal(numero) {
-        var numero = numerotoFixed(0).split('.');
-        numero[0] = "R$ " + numero?.[0].split(/(?=(?:...)*$)/).join('.');
-        return numero.join(',');
-    }
 
     function handleSignIn(){
         signIn({placa,empresa});
@@ -134,7 +138,9 @@ export function SignIn(){
                     </Section>
                 </Fieldset>
 
-                <Fieldset title="REFERÊNCIAS">
+            </Itens>
+
+            <Fieldset title="REFERÊNCIAS">
                     <Section>
                         <Input title="Valor Avaliado" disabled value={avaliacao?.valuation_value}></Input>
                         <Input title="Gasto Previsto" disabled value={avaliacao?.expenses_value}></Input>
@@ -146,30 +152,25 @@ export function SignIn(){
                         <Input title="% Fipe" disabled value={percentFipe}></Input>
                     </Section>
                     <Section>
-                        <Input title="REF B2B" disabled></Input>
-                        <Input title="% B2B" disabled></Input>
-                        <Input title="Margem B2B" disabled></Input>
-                        <Input title="% Margem B2B" disabled></Input>
+                        <Input title="REF B2B" disabled value={Number(b2b).toFixed(0)}></Input>
+                        <Input title="% B2B" disabled value={percentB2B}></Input>
+                        <Input title="Margem B2B" disabled value = {margemB2b.toFixed(0)}></Input>
+                        <Input title="% Margem B2B" disabled value = {percentMargemB2B}></Input>
                     </Section>
                     <Section>
-                        <Input title="REF B2C" disabled></Input>
-                        <Input title="% B2C" disabled></Input>
-                        <Input title="Margem B2C" disabled></Input>
-                        <Input title="% Margem B2C" disabled></Input>
+                        <Input title="REF B2C" disabled value={Number(b2c).toFixed(0)}></Input>
+                        <Input title="% B2C" disabled value={percentB2C}></Input>
+                        <Input title="Margem B2C" disabled value={margemB2c.toFixed(0)}></Input>
+                        <Input title="% Margem B2C" disabled value={percentMargemB2C}></Input>
                     </Section>
                     <Section>
                         <Input title="Sugestao Venda" disabled value={avaliacao?.proposed_value}></Input>
-                        <Input title="% Sugestao Venda x Fipe" disabled></Input>
-                        <Input title="Margem Sugestao Venda" disabled></Input>
-                        <Input title="% Margem Sugestao Venda" disabled></Input>
                     </Section>
                     <Section>
                         <Input title="Expectativa Cliente" disabled value={avaliacao?.expected_value}></Input>
                         <Input title="% Exp Cliente x Fipe" disabled value={percentFipeExpCli}></Input>
                     </Section>
                 </Fieldset>
-
-            </Itens>
 
             <Fieldset title="ITENS AVALIADOS">
                 <Section>

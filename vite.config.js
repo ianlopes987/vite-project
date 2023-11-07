@@ -6,17 +6,15 @@ import mkcert from 'vite-plugin-mkcert'
 export default defineConfig({
   plugins: [react(), mkcert()],
   server: {
-    cors: true,
     open: true,
     https: true,
-    port: 5173,
     proxy: {
       '/api': {
         target: 'https://apps-luke-dot-autoavaliar-apps.appspot.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace('/api', ''),
+        ws: true,
         secure: false,
-        ws: true
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     }
   }

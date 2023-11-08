@@ -96,6 +96,7 @@ export function SignIn(){
                     <div id="select">
                         <label>Empresa</label>
                         <select onChange={e => setEmpresa(e.target.value)}>
+                            <option value="#">Selecione uma empresa</option>
                             <option value="101204609">Vouga</option>
                             <option value="101204610">CDA</option>
                             <option value="101185528">Sanauto</option>

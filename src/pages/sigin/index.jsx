@@ -21,7 +21,7 @@ export function SignIn(){
     const {signIn,avaliacao} = useAuth();
 
     let classificacao;
-    const custo = (avaliacao?.valuation_value + avaliacao?.expenses_value) - avaliacao?.top_dealer;
+    const custo = (avaliacao?.valuation_value + avaliacao?.expenses_value);
     const percentFipe = `${((custo / avaliacao?.fipe_value) * 100)?.toFixed(0)}%`
     const percentFipeExpCli = `${((avaliacao?.expected_value / avaliacao?.fipe_value) * 100)?.toFixed(0)}%` 
     //avaliacao?.items?.findIndex(i => i?.id === 1)

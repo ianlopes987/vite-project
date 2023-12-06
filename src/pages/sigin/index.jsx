@@ -112,6 +112,38 @@ export function SignIn(){
         return statusGarantia
     }
 
+    function periodoGarantiaAno(){
+        if(avaliacao?.vehicle?.make?.name == "HONDA" || avaliacao?.vehicle?.make?.name == "FIAT"
+        || avaliacao?.vehicle?.make?.name == "CHEVROLET" || avaliacao?.vehicle?.make?.name == "NISSAN"
+        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "BYD"){
+            periodoGarantia = 3;
+        }
+
+        if(avaliacao?.vehicle?.make?.name == "NISSAN" && avaliacao?.vehicle?.model?.name == "FRONTIER"){
+            periodoGarantia = 6;
+        }
+
+        const ano = Number(avaliacao?.vehicle?.year);
+
+        const anoGarantia = ano + periodoGarantia;
+
+        const dataAtual = new Date();
+
+        const anoAtual = dataAtual.getFullYear();
+
+        const anosRestantes = anoGarantia - anoAtual
+
+        let statusGarantia = ""
+
+        if(anosRestantes < 0){
+            statusGarantia = "Fora de garantia"
+        }else{
+            statusGarantia = `Garantia vai até ${anoGarantia}`
+        }
+
+        return periodoGarantia
+    }
+
 
     function handleSignIn(){
         signIn({placa,empresa});
@@ -179,8 +211,9 @@ export function SignIn(){
                     <Input title="Marca" disabled value={avaliacao?.vehicle?.make?.name}></Input>
                     <Section>
                     <Input title="Ano Modelo" disabled value={avaliacao?.vehicle?.year}></Input>
-                    <Input title="Provavel Garantia" disabled value={garantia()}></Input>
+                    <Input title="Anos de Garantia" disabled value={periodoGarantiaAno()}></Input>
                     </Section>
+                    <Input title="Provavel Garantia" disabled value={garantia()}></Input>
                 </Fieldset>
 
             </Itens>

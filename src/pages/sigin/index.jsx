@@ -83,12 +83,21 @@ export function SignIn(){
     function garantia(){
         if(avaliacao?.vehicle?.make?.name == "HONDA" || avaliacao?.vehicle?.make?.name == "FIAT"
         || avaliacao?.vehicle?.make?.name == "CHEVROLET" || avaliacao?.vehicle?.make?.name == "NISSAN"
-        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "BYD"){
+        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "JEEP"){
             periodoGarantia = 3;
         }
 
+        if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"){
+            periodoGarantia = 5;
+        }
+
+
         if(avaliacao?.vehicle?.make?.name == "NISSAN" && avaliacao?.vehicle?.model?.name == "FRONTIER"){
             periodoGarantia = 6;
+        }
+
+        if(avaliacao?.vehicle?.make?.name == "BMW"){
+            periodoGarantia = 2;
         }
 
         const ano = Number(avaliacao?.vehicle?.year);
@@ -113,14 +122,24 @@ export function SignIn(){
     }
 
     function periodoGarantiaAno(){
+
         if(avaliacao?.vehicle?.make?.name == "HONDA" || avaliacao?.vehicle?.make?.name == "FIAT"
         || avaliacao?.vehicle?.make?.name == "CHEVROLET" || avaliacao?.vehicle?.make?.name == "NISSAN"
-        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "BYD"){
+        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "JEEP"){
             periodoGarantia = 3;
         }
 
+        if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"){
+            periodoGarantia = 5;
+        }
+
+
         if(avaliacao?.vehicle?.make?.name == "NISSAN" && avaliacao?.vehicle?.model?.name == "FRONTIER"){
             periodoGarantia = 6;
+        }
+
+        if(avaliacao?.vehicle?.make?.name == "BMW"){
+            periodoGarantia = 2;
         }
 
         const ano = Number(avaliacao?.vehicle?.year);

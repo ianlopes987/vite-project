@@ -106,7 +106,7 @@ export function SignIn(){
         if(anosRestantes < 0){
             statusGarantia = "Fora de garantia"
         }else{
-            statusGarantia = `${anosRestantes} ano(s) de garantia`
+            statusGarantia = `Garantia vai até ${anoGarantia}`
         }
 
         return statusGarantia

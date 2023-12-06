@@ -21,6 +21,7 @@ export function SignIn(){
     const {signIn,avaliacao} = useAuth();
 
     let classificacao;
+    let periodoGarantia = 0;
     const custo = (avaliacao?.valuation_value + avaliacao?.expenses_value);
     const percentFipe = `${((custo / avaliacao?.fipe_value) * 100)?.toFixed(0)}%`
     const percentFipeExpCli = `${((avaliacao?.expected_value / avaliacao?.fipe_value) * 100)?.toFixed(0)}%` 
@@ -79,6 +80,39 @@ export function SignIn(){
       }
 
 
+    function garantia(){
+        if(avaliacao?.vehicle?.make?.name == "HONDA" || avaliacao?.vehicle?.make?.name == "FIAT"
+        || avaliacao?.vehicle?.make?.name == "CHEVROLET" || avaliacao?.vehicle?.make?.name == "NISSAN"
+        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "BYD"){
+            periodoGarantia = 3;
+        }
+
+        if(avaliacao?.vehicle?.make?.name == "NISSAN" && avaliacao?.vehicle?.model?.name == "FRONTIER"){
+            periodoGarantia = 6;
+        }
+
+        const ano = Number(avaliacao?.vehicle?.year);
+
+        const anoGarantia = ano + periodoGarantia;
+
+        const dataAtual = new Date();
+
+        const anoAtual = dataAtual.getFullYear();
+
+        const anosRestantes = anoGarantia - anoAtual
+
+        let statusGarantia = ""
+
+        if(anosRestantes < 0){
+            statusGarantia = "Fora de garantia"
+        }else{
+            statusGarantia = `${anosRestantes} ano(s) de garantia`
+        }
+
+        return statusGarantia
+    }
+
+
     function handleSignIn(){
         signIn({placa,empresa});
     }
@@ -121,6 +155,7 @@ export function SignIn(){
             <Itens>
                 <Fieldset title="DADOS DA AVALIAÇÃO">
                     <Input title="Veiculo Avaliado" disabled value={avaliacao?.vehicle?.model?.name +" " +avaliacao?.vehicle?.version?.name}></Input>
+                    <Input title="Veiculo de Interesse" disabled value={avaliacao?.interested_vehicle}></Input>
                     <Section>
                     <Input title="KM" disabled value={avaliacao?.vehicle?.mileage}></Input>
                     <Input title="Ano Modelo" disabled value={avaliacao?.vehicle?.year}></Input>
@@ -134,10 +169,17 @@ export function SignIn(){
                     <Input title="Municipio Vec" disabled value={avaliacao?.vehicle?.city}></Input>
                     </Section>
                     
-                    <Input title="Veiculo de Interesse" disabled value={avaliacao?.interested_vehicle}></Input>
                     <Section>
                     <Input title="Avaliador" disabled value={avaliacao?.valuer?.name}></Input>
                     <Input title="Vendedor" disabled value={avaliacao?.user?.name}></Input>
+                    </Section>
+                </Fieldset>
+
+                <Fieldset title="REFERÊNCIAS DE GARANTIA">
+                    <Input title="Marca" disabled value={avaliacao?.vehicle?.make?.name}></Input>
+                    <Section>
+                    <Input title="Ano Modelo" disabled value={avaliacao?.vehicle?.year}></Input>
+                    <Input title="Provavel Garantia" disabled value={garantia()}></Input>
                     </Section>
                 </Fieldset>
 

@@ -177,6 +177,7 @@ export function SignIn(){
                             <option value="101204600">Nossa Moto</option>
                             <option value="101212127">BYD Teresina</option>
                             <option value="101212126">BYD Natal</option>
+                            <option value="101212128">GWM SLZ</option>
                         </select>
                     </div>
 

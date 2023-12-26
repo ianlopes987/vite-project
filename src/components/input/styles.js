@@ -4,11 +4,11 @@ export const Container = styled.div`
 
     display: flex;
     flex-direction: column;
-    font-size: 10px;
+    font-size: 11x;
     color: black;
 
     > input,select{
-        font-size: 10px;
+        font-size: 15px;
         padding: 0 14px;
         border: 1px solid #E6E6F0;
         border-radius: 8px;

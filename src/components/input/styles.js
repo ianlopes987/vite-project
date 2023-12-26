@@ -4,7 +4,7 @@ export const Container = styled.div`
 
     display: flex;
     flex-direction: column;
-    font-size: 11x;
+    font-size: 11px;
     color: black;
 
     > input,select{

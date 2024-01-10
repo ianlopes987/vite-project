@@ -10,6 +10,7 @@ function AuthProvider({children}){
 
     async function signIn({placa,empresa}){
         try{
+
             const postData = {
                 "send_images": false, 
                 "plate": `${placa}`, 

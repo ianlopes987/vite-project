@@ -8,7 +8,7 @@ export const Api = axios.create({
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcHBzLWx1a2UtZG90LWF1dG9hdmFsaWFyLWFwcHMuYXBwc3BvdC5jb20iLCJpYXQiOjE3MDYwNTY1ODAsImp0aSI6IjgyN2Y3YzJhM2NhOWQzNjllYjQ0OGUyMzE3Yjg1ZjEyNzQ4NDJhMGMiLCJuYmYiOjE3MDYwNTY1ODAsImV4cCI6MTcwNjE0Mjk4MCwiZGF0YSI6eyJjb3VudHJ5X2lkIjoiNzYiLCJpbnN0YW5jZV9pZCI6MTMyNDkxLCJ0b2tlbl9pZCI6MTYxNjU1NjYwLCJ0eXBlIjoiYXV0aG9yaXphdGlvbiJ9fQ.fuHdWtcKOyUacB3c0M7uqwb_4DVsPHSFvZLfZm_feqw",
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcHBzLWx1a2UtZG90LWF1dG9hdmFsaWFyLWFwcHMuYXBwc3BvdC5jb20iLCJpYXQiOjE3MDYxNDczMjYsImp0aSI6IjgyN2Y3YzJhM2NhOWQzNjllYjQ0OGUyMzE3Yjg1ZjEyNzQ4NDJhMGMiLCJuYmYiOjE3MDYxNDczMjYsImV4cCI6MTcwNjIzMzcyNiwiZGF0YSI6eyJjb3VudHJ5X2lkIjoiNzYiLCJpbnN0YW5jZV9pZCI6MTMyNDkxLCJ0b2tlbl9pZCI6MTYxODIxNTk3LCJ0eXBlIjoiYXV0aG9yaXphdGlvbiJ9fQ.SFtybswspglh49IX4zwARjo6qafjCLUyzKpzrg6lbD4",
          "signature": "9587915e-367335b4-e286dbc4-35585857-db78c0c5"
     }
 

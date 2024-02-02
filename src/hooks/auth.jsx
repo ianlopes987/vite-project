@@ -20,7 +20,7 @@ function AuthProvider({children}){
                 "use_svt": false, 
                 "use_cod_fipe": true, 
                 "require_solicitation": false,
-                "status": [2,3],
+                "status": [2,3,6],
                 "get_reference_value": true,
             };
   

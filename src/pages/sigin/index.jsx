@@ -87,7 +87,8 @@ export function SignIn(){
             periodoGarantia = 3;
         }
 
-        if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"){
+        if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"
+        || avaliacao?.vehicle?.make?.name == "MITSUBISHI"){
             periodoGarantia = 5;
         }
 

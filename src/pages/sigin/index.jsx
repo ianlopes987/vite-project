@@ -101,7 +101,7 @@ export function SignIn(){
             periodoGarantia = 2;
         }
 
-        const ano = Number(avaliacao?.vehicle?.year);
+        const ano = Number(avaliacao?.vehicle?.assembly);
 
         const anoGarantia = ano + periodoGarantia;
 
@@ -130,7 +130,8 @@ export function SignIn(){
             periodoGarantia = 3;
         }
 
-        if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"){
+        if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"
+        || avaliacao?.vehicle?.make?.name == "MITSUBISHI"){
             periodoGarantia = 5;
         }
 
@@ -143,7 +144,7 @@ export function SignIn(){
             periodoGarantia = 2;
         }
 
-        const ano = Number(avaliacao?.vehicle?.year);
+        const ano = Number(avaliacao?.vehicle?.assembly);
 
         const anoGarantia = ano + periodoGarantia;
 
@@ -231,7 +232,7 @@ export function SignIn(){
                 <Fieldset title="REFERÊNCIAS DE GARANTIA">
                     <Input title="Marca" disabled value={avaliacao?.vehicle?.make?.name}></Input>
                     <Section>
-                    <Input title="Ano Modelo" disabled value={avaliacao?.vehicle?.year}></Input>
+                    <Input title="Ano Fabricacao" disabled value={avaliacao?.vehicle?.assembly}></Input>
                     <Input title="Anos de Garantia" disabled value={periodoGarantiaAno()}></Input>
                     </Section>
                     <Input title="Provavel Garantia" disabled value={garantia()}></Input>

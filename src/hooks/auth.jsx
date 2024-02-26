@@ -22,6 +22,7 @@ function AuthProvider({children}){
                 "require_solicitation": false,
                 "status": [2,3,6],
                 "get_reference_value": true,
+                "use_valuations_answers":true
             };
   
             const response = await Api.post("/usbi/syncService/getValuation",postData);

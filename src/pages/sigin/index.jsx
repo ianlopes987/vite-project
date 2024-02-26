@@ -57,6 +57,17 @@ export function SignIn(){
     const margemB2c = b2c - custo;
     const percentMargemB2C = `${((margemB2c/ custo) * 100)?.toFixed(0)}%`;
     const percentFipeSugestao = `${((avaliacao?.proposed_value/avaliacao?.fipe_value) * 100)?.toFixed(0)}%`
+
+    // q1 = "question": "Qual concessionaria foi comprado o veiculo ?"
+    const q1 = avaliacao?.questions?.[avaliacao?.questions?.findIndex(i => i?.question_id === 240)]?.answer;
+    // q2 = question": "Revisão 10.000KM"
+    const q2 = avaliacao?.questions?.[avaliacao?.questions?.findIndex(i => i?.question_id === 241)]?.answer;
+    // q3 = "question": "Revisão 20.000KM",
+    const q3 = avaliacao?.questions?.[avaliacao?.questions?.findIndex(i => i?.question_id === 242)]?.answer;
+    // q4 = "question": "Revisão 30.000KM"
+    const q4 = avaliacao?.questions?.[avaliacao?.questions?.findIndex(i => i?.question_id === 243)]?.answer;
+    // q5 = "question": "Todas as revisões feitas em concessionárias?"
+    const q5 = avaliacao?.questions?.[avaliacao?.questions?.findIndex(i => i?.question_id === 154)]?.answer;
     
 
     switch(avaliacao?.rating) {
@@ -236,6 +247,15 @@ export function SignIn(){
                     <Input title="Anos de Garantia" disabled value={periodoGarantiaAno()}></Input>
                     </Section>
                     <Input title="Provavel Garantia" disabled value={garantia()}></Input>
+                    <Section>
+                    <Input title="Concessionaria Origem" disabled value={q1}></Input>
+                    <Input title="Revisoes na concessionaria" disabled value={q5 == 1 ? "Sim" : "Nao"}></Input>
+                    </Section>
+                     <Section>
+                    <Input title="Revisão 10.000KM" disabled value={q2 == 1 ? "Sim" : "Nao"}></Input>
+                    <Input title="Revisão 20.000KM" disabled value={q3 == 1 ? "Sim" : "Nao"}></Input>
+                    </Section>
+                    <Input title="Revisão 30.000KM" disabled value={q4 == 1 ? "Sim" : "Nao"}></Input>
                 </Fieldset>
 
             </Itens>

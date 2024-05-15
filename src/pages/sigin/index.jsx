@@ -94,7 +94,8 @@ export function SignIn(){
     function garantia(){
         if(avaliacao?.vehicle?.make?.name == "HONDA" || avaliacao?.vehicle?.make?.name == "FIAT"
         || avaliacao?.vehicle?.make?.name == "CHEVROLET" || avaliacao?.vehicle?.make?.name == "NISSAN"
-        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "JEEP"){
+        || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "JEEP"
+        || avaliacao?.vehicle?.make?.name == "VOLKSWAGEN" || avaliacao?.vehicle?.make?.name == "HYUNDAI"){
             periodoGarantia = 3;
         }
 
@@ -138,7 +139,7 @@ export function SignIn(){
         if(avaliacao?.vehicle?.make?.name == "HONDA" || avaliacao?.vehicle?.make?.name == "FIAT"
         || avaliacao?.vehicle?.make?.name == "CHEVROLET" || avaliacao?.vehicle?.make?.name == "NISSAN"
         || avaliacao?.vehicle?.make?.name == "RENAULT" || avaliacao?.vehicle?.make?.name == "JEEP"
-        || avaliacao?.vehicle?.make?.name == "VOLKSWAGEN"){
+        || avaliacao?.vehicle?.make?.name == "VOLKSWAGEN" || avaliacao?.vehicle?.make?.name == "HYUNDAI"){
             periodoGarantia = 3;
         }
 

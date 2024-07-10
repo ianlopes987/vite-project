@@ -49,14 +49,23 @@ export function SignIn(){
     const luzInjecao = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 14)]?.expenses_value;
     const airBag = avaliacao?.items?.[avaliacao?.items.findIndex(i => i?.id === 15)]?.expenses_value;
     const b2b = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 8)]?.avg_value;
+    const b2bMax = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 8)]?.max_value;
+    const b2bMin = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 8)]?.min_value;
+    const avv = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 2)]?.avg_value;
+    const avvMax = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 2)]?.max_value;
+    const avvMin = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 2)]?.min_value;
+    const web = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 1)]?.min_value;
     const percentB2B = `${((custo / b2b) * 100)?.toFixed(0)}%`;
     const margemB2b = b2b - custo;
     const percentMargemB2B = `${((margemB2b / custo) * 100)?.toFixed(0)}%`;
     const b2c = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 7)]?.avg_value;
+    const b2cMax = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 7)]?.max_value;
+    const b2cMin = avaliacao?.references?.[avaliacao?.references.findIndex(i => i?.id === 7)]?.min_value;
     const percentB2C = `${((custo / b2c) * 100)?.toFixed(0)}%`;
     const margemB2c = b2c - custo;
     const percentMargemB2C = `${((margemB2c/ custo) * 100)?.toFixed(0)}%`;
     const percentFipeSugestao = `${((avaliacao?.proposed_value/avaliacao?.fipe_value) * 100)?.toFixed(0)}%`
+    const teste = avaliacao?.items?.name;
 
     // q1 = "question": "Qual concessionaria foi comprado o veiculo ?"
     const q1 = avaliacao?.questions?.[avaliacao?.questions?.findIndex(i => i?.question_id === 240)]?.answer;
@@ -100,7 +109,8 @@ export function SignIn(){
         }
 
         if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"
-        || avaliacao?.vehicle?.make?.name == "MITSUBISHI"){
+        || avaliacao?.vehicle?.make?.name == "MITSUBISHI"
+        || avaliacao?.vehicle?.make?.name == "GWM"){
             periodoGarantia = 5;
         }
 
@@ -144,7 +154,8 @@ export function SignIn(){
         }
 
         if(avaliacao?.vehicle?.make?.name == "BYD" || avaliacao?.vehicle?.make?.name == "TOYOTA"
-        || avaliacao?.vehicle?.make?.name == "MITSUBISHI"){
+        || avaliacao?.vehicle?.make?.name == "MITSUBISHI"
+        || avaliacao?.vehicle?.make?.name == "GWM"){
             periodoGarantia = 5;
         }
 
@@ -185,7 +196,7 @@ export function SignIn(){
 
     return(
         <Container>
-        
+
         <Header></Header> 
         <Form>
 
@@ -221,7 +232,9 @@ export function SignIn(){
 
             <Itens>
                 <Fieldset title="DADOS DA AVALIAÇÃO">
+
                     <Input title="Veiculo Avaliado" disabled value={avaliacao?.vehicle?.model?.name +" " +avaliacao?.vehicle?.version?.name}></Input>
+
                     <Input title="Veiculo de Interesse" disabled value={avaliacao?.interested_vehicle}></Input>
                     <Section>
                     <Input title="KM" disabled value={avaliacao?.vehicle?.mileage}></Input>
@@ -273,18 +286,31 @@ export function SignIn(){
                         <Input title="Fipe" disabled value={avaliacao?.fipe_value}></Input>
                         <Input title="% Fipe" disabled value={percentFipe}></Input>
                     </Section>
+
                     <Section>
-                        <Input title="REF B2B" disabled value={Number(b2b).toFixed(0)}></Input>
-                        <Input title="% B2B" disabled value={percentB2B}></Input>
-                        <Input title="Margem B2B" disabled value = {margemB2b.toFixed(0)}></Input>
+                        <Input title="COMPRA LOJAS FORTALEZA" disabled value={Number(avv).toFixed(0)}></Input>
+                        <Input title="COMPRA LOJAS CE" disabled value={Number(avvMax).toFixed(0)}></Input>
+                        <Input title="COMPRA LOJAS BRASIL" disabled value={Number(avvMin).toFixed(0)}></Input>
+                    </Section>
+
+                    <Section>
+                        <Input title="B2B FORTALEZA" disabled value={Number(b2b).toFixed(0)}></Input>
+                        <Input title="B2B CE" disabled value={Number(b2bMax).toFixed(0)}></Input>
+                        <Input title="B2B BRASIL" disabled value={Number(b2bMin).toFixed(0)}></Input>
                         <Input title="% Margem B2B" disabled value = {percentMargemB2B}></Input>
                     </Section>
                     <Section>
-                        <Input title="REF B2C" disabled value={Number(b2c).toFixed(0)}></Input>
-                        <Input title="% B2C" disabled value={percentB2C}></Input>
-                        <Input title="Margem B2C" disabled value={margemB2c.toFixed(0)}></Input>
+                        <Input title="B2C FORTALEZA" disabled value={Number(b2c).toFixed(0)}></Input>
+                        <Input title="B2C CE" disabled value={Number(b2cMax).toFixed(0)}></Input>
+                        <Input title="B2C BRASIL" disabled value={Number(b2cMin).toFixed(0)}></Input>
                         <Input title="% Margem B2C" disabled value={percentMargemB2C}></Input>
                     </Section>
+
+                    <Section>
+                        <Input title="WEB MOTORS" disabled value={Number(web).toFixed(0)}></Input>
+                    </Section>
+
+                    
                     <Section>
                         <Input title="Sugestao Venda" disabled value={avaliacao?.proposed_value}></Input>
                     </Section>
@@ -331,7 +357,9 @@ export function SignIn(){
                 <Section>
                     <Input title="LUZ DA INJECAO" disabled value={luzInjecao}></Input>
                     <Input title="AIR BAG" disabled value={airBag}></Input>
+                    <Input title="AIR BAG" disabled value={teste}></Input>
                 </Section>
+
             </Fieldset>
 
 

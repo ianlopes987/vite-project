@@ -120,7 +120,7 @@ export function SignIn(){
             periodoGarantia = 6;
         }
 
-        if(avaliacao?.vehicle?.make?.name == "BMW"){
+        if(avaliacao?.vehicle?.make?.name == "BMW" || avaliacao?.vehicle?.make?.name == "KIA"){
             periodoGarantia = 2;
         }
 
@@ -166,7 +166,7 @@ export function SignIn(){
             periodoGarantia = 6;
         }
 
-        if(avaliacao?.vehicle?.make?.name == "BMW"){
+        if(avaliacao?.vehicle?.make?.name == "BMW" || avaliacao?.vehicle?.make?.name == "KIA"){
             periodoGarantia = 2;
         }
 
